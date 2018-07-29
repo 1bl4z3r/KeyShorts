@@ -32,3 +32,6 @@ GNU General Public License v3.0
 
 
 **Free Software, Hell Yeah!**
+
+P.S. if(support==True)
+{forget=False;}
