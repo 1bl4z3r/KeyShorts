@@ -11,12 +11,6 @@ KeyShorts is free software to show Keyboard Shortcuts of various well known and 
 
   - Just kidding!!! There are no features
 
-
-You can also:
-  - Import and save files from GitHub, Dropbox, Google Drive and One Drive
-  - Drag and drop markdown and HTML files into Dillinger
-  - Export documents as Markdown, HTML and PDF
-
 Please, I am too mature to do all the jobs myself. If you know about any features as well as how to implement it, mail me at [ristikmajumdar@protonmail.com]
 
 ### How to make it work
