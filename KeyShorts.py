@@ -1,5 +1,5 @@
-import Tkinter
-import tkMessageBox
+import tkinter
+from tkinter import messagebox
 import webbrowser
 
 import xlrd
@@ -10,9 +10,9 @@ sheet = wb.sheet_by_index(0)
 sheet.cell_value(0, 0)
 
 
-class Keyshorts(Tkinter.Tk):
+class Keyshorts(tkinter.Tk):
     def __init__(self, parent):
-        Tkinter.Tk.__init__(self, parent)
+        tkinter.Tk.__init__(self, parent)
         self.parent = parent
         self.initialize()
         self.search_query = None
@@ -26,37 +26,37 @@ class Keyshorts(Tkinter.Tk):
 
     def initialize(self):
         def update():
-            tkMessageBox.showerror("No Update", "This is the alpha version")
+            messagebox.showerror("No Update", "This is the alpha version")
 
         def feedback():
-            tkMessageBox.showwarning("404 Situation", "Cannot find FeedBack Module")
+            webbrowser.open('mailto:ristikmajumdar@protonmail.com?Subject=Feedback-To-KeyShorts', new=1)
 
         def bug():
-            webbrowser.open('mailto:ristikmajumdar@protonmail.com?Subject=Bug-In-KeyShorts', new=1)
+            webbrowser.open('https://github.com/1bl4z3r/KeyShorts', new=1)
 
         def how():
-            tkMessageBox.showinfo("HowTo", "This is Alpha Version, so no HowTo")
+            messagebox.showinfo("HowTo", "This is Alpha Version, so no HowTo")
 
         def about():
-            t = Tkinter.Toplevel(self)
+            t = tkinter.Toplevel(self)
             t.title("About")
             t.wm_iconbitmap('data\logo.ico')
             t.geometry('300x100')
 
-            more = Tkinter.Label(t,
+            more = tkinter.Label(t,
                                  text=u"KeyShorts is a small freeware to provide all possible Keyboard shortcuts of various softwares and Operating Systems. Currently supporting Windows only.",
                                  wraplength=300)
             more.pack()
-            dev = Tkinter.Label(t, text=u"DEVELOPER-Ristik Majumdar", wraplength=300)
+            dev = tkinter.Label(t, text=u"DEVELOPER-Ristik Majumdar", wraplength=300)
             dev.pack()
 
-            button = Tkinter.Button(t, text="Got It!", command=t.destroy)
+            button = tkinter.Button(t, text="Got It!", command=t.destroy)
             button.pack()
 
         self.grid()
 
-        self.menubar = Tkinter.Menu(self.parent)
-        self.drop = Tkinter.Menu(self.menubar, tearoff=0)
+        self.menubar = tkinter.Menu(self.parent)
+        self.drop = tkinter.Menu(self.menubar, tearoff=0)
         self.drop.add_command(label="How To Use", command=how)
         self.drop.add_command(label="About", command=about)
         self.drop.add_separator()
@@ -68,26 +68,26 @@ class Keyshorts(Tkinter.Tk):
         self.menubar.add_command(label="Exit", command=self.quit)
         self.config(menu=self.menubar)
 
-        self.search_query = Tkinter.StringVar()
+        self.search_query = tkinter.StringVar()
 
-        self.search = Tkinter.Label(self, text=u"Search: ")
+        self.search = tkinter.Label(self, text=u"Search: ")
         self.search.grid(column=0, row=0, sticky='EW')
 
-        self.searchbox = Tkinter.Entry(self, textvariable=self.search_query)
+        self.searchbox = tkinter.Entry(self, textvariable=self.search_query)
         self.searchbox.grid(column=1, row=0, sticky='EW')
         self.search_query.set(u"Currently Unavailable")
 
-        self.searchbtn = Tkinter.Button(self, text=u"\U0001F50D")
+        self.searchbtn = tkinter.Button(self, text=u"Find")  #\U0001F50D
         self.searchbtn.grid(column=2, row=0, sticky='EW')
 
-        self.list = Tkinter.Listbox(self)
-        self.scrollbar = Tkinter.Scrollbar(self, orient="vertical")
+        self.list = tkinter.Listbox(self)
+        self.scrollbar = tkinter.Scrollbar(self, orient="vertical")
 
         self.list.config(yscrollcommand=self.scrollbar.set)
         self.scrollbar.config(command=self.list.yview)
 
         for i in range(sheet.nrows):
-            self.list.insert(Tkinter.END, "  ".join(sheet.row_values(i)))
+            self.list.insert(tkinter.END, "  ".join(sheet.row_values(i)))
 
         self.list.grid(row=1, column=0, sticky='NSEW', columnspan=2)
         self.list.columnconfigure(0, weight=1)
@@ -103,7 +103,7 @@ class Keyshorts(Tkinter.Tk):
 
 if __name__ == "__main__":
     app = Keyshorts(None)
-    app.title('KeyShorts (0.0.1)')
+    app.title('KeyShorts (0.0.2)')
     app.wm_iconbitmap('data\logo.ico')
     app.geometry('1000x500')
     app.mainloop()
