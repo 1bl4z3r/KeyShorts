@@ -15,7 +15,7 @@ Please, I am too mature to do all the jobs myself. If you know about any feature
 
 ### How to make it work
 
-1. Download *KeyShorts.zip* from "Releases"
+1. Download *KeyShorts* from : https://github.com/1bl4z3r/KeyShorts/raw/master/Releases/KeyShorts.zip
 2. Unzip it (obviously)
 3. Double click on KeyShorts.exe
 
